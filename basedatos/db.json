@@ -1,0 +1,32 @@
+{
+    "productos": [
+      {
+        "id": "P001",
+        "nombre": "Leche",
+        "precio": 15000,
+        "descripcion": "Leche entera de 1 litro",
+        "categoria": "Lácteos"
+      },
+      {
+        "id": "P002",
+        "nombre": "Aguacate",
+        "precio": 25000,
+        "descripcion": "Aguacate Hass",
+        "categoria": "Frutas"
+      },
+      {
+        "id": "P003",
+        "nombre": "Fresas",
+        "precio": 35000,
+        "descripcion": "Fresas frescas de temporada",
+        "categoria": "Frutas"
+      },
+      {
+        "id": "P004",
+        "nombre": "Arroz",
+        "precio": 12000,
+        "descripcion": "Arroz de grano largo, paquete de 1 kg",
+        "categoria": "Cereales"
+      }
+    ]
+  }

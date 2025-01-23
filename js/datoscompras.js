@@ -4,28 +4,33 @@ class datoscompras extends HTMLElement{
         super();
     }
     connectedCallback(){
+
+        const numerofactura = Math.floor(Math.random() * 100000);
+
         this.innerHTML = `
 
         <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f9f9f9;
+            background-image: url('img/pngtree-an-empty-supermarket-on-blue-walls-has-shelves-of-products-image_2617234.jpg');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
         }
     
         .form-container {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 20px 30px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             width: 65vh;
             display: grid;
             gap: 20px;
+            margin-top: 4vh;
         }
     
         form p {
@@ -92,6 +97,11 @@ class datoscompras extends HTMLElement{
         <div class="form-container">
 
         <form id="user-form">
+        
+            <p>Factura No.</p>
+            
+            <input type="text" name="factura" id="factura" value="${numerofactura}" disabled>
+
             <p>ID</p>
             <input type="text" name="id" id="id">
             

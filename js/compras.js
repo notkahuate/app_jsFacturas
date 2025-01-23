@@ -10,7 +10,7 @@ class compras extends HTMLElement {
         <style>
         
         .form-containerc {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 20px 30px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -104,7 +104,10 @@ class compras extends HTMLElement {
         <label for="quantity">Cantidad</label>
         <input type="number" id="quantity" placeholder="Ingrese la cantidad">
 
-        <button type="submit">Enviar</button>
+        <button type="submit">
+        <img src="img/shop-cart-svgrepo-com (1).svg" alt="Icono" style="width: 20px; height: 20px; margin-right: 10px;">
+     
+        </button>
         </form>
         </div>
 
@@ -116,14 +119,51 @@ class compras extends HTMLElement {
 
 customElements.define('compras-d',compras);
 
+//select los diferetnes productos
+
 document.getElementById("product").addEventListener("change", function () {
     const selectedOption = this.options[this.selectedIndex];
 
-    // Obtener los valores de los atributos data-code y data-price
+   
     const code = selectedOption.getAttribute("data-code");
     const price = selectedOption.getAttribute("data-price");
 
-    // Rellenar los campos correspondientes
+   
     document.getElementById("code").value = code ;
     document.getElementById("unit-price").value = price ;
+});
+
+
+
+
+
+document.getElementById("product-form").addEventListener("submit", function (e) {
+    e.preventDefault(); // Evita que el formulario se envíe y recargue la página
+
+    const productSelect = document.getElementById("product");
+    const productName = productSelect.options[productSelect.selectedIndex].text;
+    const productCode = document.getElementById("code").value;
+    const productPrice = document.getElementById("unit-price").value;
+    const productQuantity = document.getElementById("quantity").value;
+
+    // Calculamos el total
+    const totalPrice = (productPrice * productQuantity).toFixed(2);
+
+    // Creamos una nueva fila en la tabla
+    const newRow = document.createElement("tr");
+    newRow.innerHTML = `
+        <td>${productCode}</td>
+        <td>${productName}</td>
+        <td>${productQuantity}</td>
+        <td>${totalPrice}</td>
+    `;
+
+    // Añadimos la nueva fila al cuerpo de la tabla
+    document.getElementById("summary-body").appendChild(newRow);
+
+    // Limpiar los campos después de agregar el producto
+    document.getElementById("product").value = "";
+    document.getElementById("code").value = "";
+    document.getElementById("unit-price").value = "";
+    document.getElementById("quantity").value = "";
 });
