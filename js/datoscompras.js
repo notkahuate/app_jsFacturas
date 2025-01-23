@@ -1,5 +1,5 @@
 
-class datosingreso extends HTMLElement{
+class datoscompras extends HTMLElement{
     constructor(){
         super();
     }
@@ -121,4 +121,4 @@ class datosingreso extends HTMLElement{
 
 }
 
-customElements.define('datos-ingreso',datosingreso);
+customElements.define('datos-compras',datoscompras);

@@ -1,2 +1,2 @@
-import "./datosingreso.js";
+import "./datoscompras.js";
 import "./compras.js"
