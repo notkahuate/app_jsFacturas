@@ -90,9 +90,9 @@ class compras extends HTMLElement {
         <label for="product">Nombre del Producto</label>
         <select id="product">
             <option value="" disabled selected>Selecciona un producto</option>
-            <option value="1" data-code="P001" data-price="15000">Producto A</option>
-            <option value="2" data-code="P002" data-price="25000">Producto B</option>
-            <option value="3" data-code="P003" data-price="35000">Producto C</option>
+            <option value="1" data-code="P001" data-price="15000">leche</option>
+            <option value="2" data-code="P002" data-price="25000">aguacate</option>
+            <option value="3" data-code="P003" data-price="35000">fresas</option>
         </select>
 
         <label for="code">Código</label>
@@ -115,3 +115,15 @@ class compras extends HTMLElement {
 }
 
 customElements.define('compras-d',compras);
+
+document.getElementById("product").addEventListener("change", function () {
+    const selectedOption = this.options[this.selectedIndex];
+
+    // Obtener los valores de los atributos data-code y data-price
+    const code = selectedOption.getAttribute("data-code");
+    const price = selectedOption.getAttribute("data-price");
+
+    // Rellenar los campos correspondientes
+    document.getElementById("code").value = code ;
+    document.getElementById("unit-price").value = price ;
+});
