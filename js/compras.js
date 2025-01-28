@@ -151,8 +151,10 @@ document.addEventListener("change",(event)=>{
     }
 });
 
-
+let acumuladorsubtotal = 0;
 document.addEventListener("submit", (event) => {
+
+    
     if (event.target.id === "product-form") {
         event.preventDefault();
 
@@ -171,6 +173,21 @@ document.addEventListener("submit", (event) => {
             <td>${productQuantity}</td>
             <td>${totalPrice}</td>
         `;
+        
+        acumuladorsubtotal += parseInt(totalPrice)
+
+        const totalPriceparseado = parseInt(acumuladorsubtotal);
+
+        document.getElementById("subtotal").value = totalPriceparseado;
+        const iv = parseInt(totalPriceparseado * 0.19);
+        document.getElementById("iva").value = iv;
+
+        const totalfactura = totalPriceparseado + iv;
+        document.getElementById("total").value = totalfactura ;
+
+
+
+
 
         document.getElementById("summary-body").appendChild(newRow);
 
@@ -179,5 +196,7 @@ document.addEventListener("submit", (event) => {
         document.getElementById("code").value = "";
         document.getElementById("unit-price").value = "";
         document.getElementById("quantity").value = "";
+
+
     }
 });
