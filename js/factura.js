@@ -108,5 +108,51 @@ class factura extends HTMLElement {
 }
 
 
+document.addEventListener("submit",(event)=>{
+    const nrofactura = document.getElementById("factura").value;
+    const iduser = document.getElementById("id");
+    const nombreuser = document.getElementById("nombre");
+    const apellidouser = document.getElementById("apellido");
+    const direccionuser = document.getElementById("direccion");
+    const emailuser = document.getElementById("email");
+
+    if(event.target.id === "prod"){
+
+        if(nrofactura && iduser && nombreuser  && apellidouser  && direccionuser  && emailuser){
+            const facturas = {
+                "idFactura": nrofactura,
+                "iduser" : iduser,
+                "nombre": nombreuser,
+                "apellido" : apellidouser,
+                "direccion": direccionuser,
+                "email": emailuser
+            };
+    
+            fetch("http://localhost:3000/facturas", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(factura)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Pago registrado con éxito:", data);
+            })
+            .catch(error => {
+                console.error("Error al enviar el pago:", error);
+            });
+        } else {
+            alert("Debe ingresar el total y asegurarse de tener un ID de cliente.");
+        }
+        
+    }
+   
+    
+
+
+});
+
+
 
 customElements.define('factura-d', factura);
