@@ -1,3 +1,6 @@
+
+
+
 class factura extends HTMLElement {
     constructor() {
         super();
@@ -103,5 +106,7 @@ class factura extends HTMLElement {
         `;
     }
 }
+
+
 
 customElements.define('factura-d', factura);

@@ -79,7 +79,7 @@ class compras extends HTMLElement {
         </style>
 
         <div class="form-containerc">
-            <form id="product-form">
+            <form id="product-form" class="card-header text-center">
                 <label for="product">Nombre del Producto</label>
                 <select id="product">
                     <option value="" disabled selected>Selecciona un producto</option>
@@ -131,6 +131,8 @@ class compras extends HTMLElement {
 
    
 }
+
+
 
 customElements.define('compras-d', compras);
 

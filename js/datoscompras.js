@@ -12,10 +12,10 @@ class datoscompras extends HTMLElement{
         <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-image: url('img/pngtree-an-empty-supermarket-on-blue-walls-has-shelves-of-products-image_2617234.jpg');
-            background-size: cover; 
-            background-position: center; 
-            background-repeat: no-repeat;
+            
+        }
+
+        .cont{
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -31,6 +31,7 @@ class datoscompras extends HTMLElement{
             display: grid;
             gap: 20px;
             margin-top: 4vh;
+            
         }
     
         form p {
